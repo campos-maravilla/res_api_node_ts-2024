@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { createProduct } from "./handlers/product"
-createProduct
+
 const router=Router()
 
 //routing
