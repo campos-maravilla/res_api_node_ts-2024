@@ -60,3 +60,21 @@ await product.save()
 
   res.json({data:product})
 }
+
+export const updtaeAvailability=async(req:Request,res:Response)=>{
+  const {id}=req.params
+const product=await Product.findByPk(id)
+
+if(!product){
+  return res.status(404).json({
+    error:'Producto No Encontrado'
+  })
+}
+// Actualizar 
+product.availability=!product.dataValues.availability
+await product.save()
+
+//console.log(product.dataValues.availability)
+
+  res.json({data:product})
+}
