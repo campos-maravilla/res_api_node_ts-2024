@@ -88,6 +88,34 @@ handleInputErrors,
 getProductById
 )
 
+/**
+ * @swagger
+ * /api/products:
+ *  post:
+ *      summary: Creates a new product 
+ *      tags:
+ *          - Products 
+ *      description: Return a new record in the database 
+ *      requestBody:
+ *          required: true    
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          name:
+ *                              type: string
+ *                              example: "Monitor Curvo 49 Pulgadas"
+ *                          price:
+ *                               type: number
+ *                               example: 399  
+ *      responses:
+ *          201:
+ *              description: Product created successfully
+ *          200:             
+ *              description: Bad Request - Invalid input data
+ * 
+ */
 router.post('/',
  // validación
  body('name')
