@@ -30,7 +30,27 @@ const router=Router()
  *                       example: true
  */
 
-//routing
+
+/**
+ * @swagger
+ * /api/products:
+ *      get:
+ *          summary: Get list of products
+ *          tags:
+ *              - Products
+ *          description: Return a list of products 
+ *          responses:
+ *              200:
+ *                  description: Successful response
+ *                  content:
+ *                      application/json:
+ *                           schema:
+ *                                type: array
+ *                                items:    
+ *                                    $ref: '#/components/schemas/Product'     
+ * 
+ * 
+ */
 router.get('/',getProducts)
 router.get('/:id',
 param('id').isInt().withMessage('ID no vàlido'),
