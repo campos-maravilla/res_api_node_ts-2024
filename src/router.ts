@@ -110,13 +110,9 @@ getProductById
  *                               type: number
  *                               example: 399  
  *      responses:
- *           201:
- *              description: Successful response
- *              content:
- *                  application/json:
- *                      schema:
- *                          $ref: '#/components/schemas/Product' 
- *          400:             
+ *          201:
+ *              description: Product created successfully
+ *          200:             
  *              description: Bad Request - Invalid input data
  * 
  */
@@ -187,6 +183,33 @@ body('availability').isBoolean().withMessage('Valor para disponibilidad no vàli
 handleInputErrors,
 updateProduct)
 
+/**
+ * @swagger
+ *  /api/products/{id}:
+ *   patch:
+ *       summary: Update Product availability
+ *       tags: 
+ *          - Products
+ *       description: Returns the updated availability
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           description: The ID of the product to retrieve
+ *           schema:
+ *               type: integer
+ *       responses:
+ *           200:
+ *              description: Successful response
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/Product'
+ *           400:
+ *               description: Bad Request - Invalid ID
+ *           404:
+ *               description: Product Not Found
+ * 
+ */
 router.patch('/:id',
 param('id').isInt().withMessage('ID no vàlido'),
 handleInputErrors, 
