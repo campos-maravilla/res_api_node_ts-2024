@@ -1,5 +1,6 @@
 
 import swaggerJSDoc from "swagger-jsdoc";
+import { SwaggerUiOptions } from "swagger-ui-express";
 
 
 const options:swaggerJSDoc.Options={
@@ -21,4 +22,25 @@ const options:swaggerJSDoc.Options={
 }
 
 const swaggerSpec=swaggerJSDoc(options)
+
+const swaggerUiOptions:SwaggerUiOptions={
+ customCss :`
+
+ .topbar-wrapper .link {
+    content: url('https://blog-appporcategorias.netlify.app/assets/logo-normal-b73d4eea.png');
+    height: 150px;
+    width: 160px;
+    width: auto;
+}
+.swagger-ui .topbar {
+    background-color: #2b3b45;
+}
+`,
+customSiteTitle: 'Documentación REST API Express / TypeScript'
+}
+
+
 export default swaggerSpec
+export {
+    swaggerUiOptions
+}
