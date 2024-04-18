@@ -5,6 +5,7 @@ import colors from 'colors'
 import swaggerUi from 'swagger-ui-express'
 import swaggerSpec,{swaggerUiOptions} from './config/swagger'
 import cors,{CorsOptions} from 'cors'
+import morgan from 'morgan' 
 
 //Conectar a base de datos 
 export async function connectDB(){
@@ -22,6 +23,9 @@ connectDB()
 
 // Instancia de express 
 const server=express()
+
+//morgan ver los endpoint en consola
+server.use(morgan('dev'))
 
 // Permitir conexiones 
 const corsOptions:CorsOptions={
