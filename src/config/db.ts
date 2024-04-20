@@ -6,7 +6,12 @@ dotenv.config()
 //se crea la conexion de la base de datos con dbeaver
 const db=new Sequelize(process.env.DATABASE_URL!,{
     models:[__dirname+'/../models/**/*'],
-    logging:false 
+    logging:false,
+    dialectOptions:{
+        ssl:{
+            required:'true'
+        }
+    } 
 })
 
 export default db 
